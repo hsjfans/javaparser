@@ -62,7 +62,7 @@ public class JavadocBlockTag {
         IGNORE,
         NAME,
 //        FUZZY,
-        NECESSARY,
+//        NECESSARY,
         // end
 
         UNKNOWN;
@@ -154,6 +154,17 @@ public class JavadocBlockTag {
         return content.isFuzzy();
     }
 
+
+    /**
+     like
+     *      <code>
+     *      * @param comment comment {@necessary}
+     *      </code>
+     * @return
+     */
+    public boolean isInlineNecessary(){
+        return content.isNecessary();
+    }
 
     public String toText() {
         StringBuilder sb = new StringBuilder();
