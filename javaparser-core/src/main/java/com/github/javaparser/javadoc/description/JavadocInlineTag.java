@@ -58,6 +58,11 @@ public class JavadocInlineTag implements JavadocDescriptionElement {
         LITERAL,
         VALUE,
         SYSTEM_PROPERTY,
+
+        // add the self-defined tag
+        IGNORE,
+        // end
+
         UNKNOWN;
 
         Type() {
