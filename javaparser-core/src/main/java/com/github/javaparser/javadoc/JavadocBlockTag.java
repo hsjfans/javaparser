@@ -57,6 +57,14 @@ public class JavadocBlockTag {
         SINCE,
         THROWS,
         VERSION,
+
+        // add the self-defined comment tag
+        IGNORE,
+        NAME,
+        FUZZY,
+        NECESSARY,
+        // end
+
         UNKNOWN;
 
         Type() {
