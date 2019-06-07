@@ -33,6 +33,10 @@ import java.util.List;
  */
 public class JavadocDescription {
 
+    private boolean ignore;
+
+    private boolean fuzzy;
+
     private List<JavadocDescriptionElement> elements;
 
     public static JavadocDescription parseText(String text) {
@@ -43,7 +47,10 @@ public class JavadocDescription {
             if (nextInlineTagPos.a != index) {
                 instance.addElement(new JavadocSnippet(text.substring(index, nextInlineTagPos.a)));
             }
-            instance.addElement(JavadocInlineTag.fromText(text.substring(nextInlineTagPos.a, nextInlineTagPos.b + 1)));
+            JavadocInlineTag javadocInlineTag = (JavadocInlineTag) JavadocInlineTag.fromText(text.substring(nextInlineTagPos.a, nextInlineTagPos.b + 1));
+            instance.setIgnore(javadocInlineTag.getType().equals(JavadocInlineTag.Type.IGNORE));
+            instance.setFuzzy(javadocInlineTag.getType().equals(JavadocInlineTag.Type.FUZZY));
+            instance.addElement(javadocInlineTag);
             index = nextInlineTagPos.b + 1;
         }
         if (index < text.length()) {
@@ -87,6 +94,22 @@ public class JavadocDescription {
         StringBuilder sb = new StringBuilder();
         elements.forEach(e -> sb.append(e.toText()));
         return sb.toString();
+    }
+
+    public boolean isIgnore() {
+        return ignore;
+    }
+
+    public void setIgnore(boolean ignore) {
+        this.ignore = ignore;
+    }
+
+    public boolean isFuzzy() {
+        return fuzzy;
+    }
+
+    public void setFuzzy(boolean fuzzy) {
+        this.fuzzy = fuzzy;
     }
 
     public boolean isEmpty() {

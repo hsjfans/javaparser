@@ -24,8 +24,11 @@ import com.github.javaparser.ast.AllFieldsConstructor;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.observer.ObservableProperty;
 import java.util.Optional;
+
+import static com.github.javaparser.StaticJavaParser.parseJavadoc;
 import static com.github.javaparser.utils.Utils.assertNotNull;
 import com.github.javaparser.ast.visitor.CloneVisitor;
+import com.github.javaparser.javadoc.Javadoc;
 import com.github.javaparser.metamodel.CommentMetaModel;
 import com.github.javaparser.metamodel.InternalProperty;
 import com.github.javaparser.metamodel.JavaParserMetaModel;
@@ -63,6 +66,11 @@ public abstract class Comment extends Node {
         setContent(content);
         customInitialization();
     }
+
+    public Javadoc parse() {
+        return parseJavadoc(getContent());
+    }
+
 
     /**
      * Return the text of the comment.

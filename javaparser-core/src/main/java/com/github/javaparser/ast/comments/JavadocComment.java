@@ -71,9 +71,6 @@ public class JavadocComment extends Comment {
         v.visit(this, arg);
     }
 
-    public Javadoc parse() {
-        return parseJavadoc(getContent());
-    }
 
     @Override
     @Generated("com.github.javaparser.generator.core.node.RemoveMethodGenerator")

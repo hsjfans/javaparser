@@ -25,12 +25,15 @@ import com.github.javaparser.ast.visitor.GenericVisitor;
 import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.visitor.CloneVisitor;
+import com.github.javaparser.javadoc.Javadoc;
 import com.github.javaparser.metamodel.BlockCommentMetaModel;
 import com.github.javaparser.metamodel.JavaParserMetaModel;
 import com.github.javaparser.TokenRange;
 import java.util.function.Consumer;
 import java.util.Optional;
 import com.github.javaparser.ast.Generated;
+
+import static com.github.javaparser.StaticJavaParser.parseJavadoc;
 
 /**
  * <p>
@@ -60,6 +63,7 @@ public class BlockComment extends Comment {
         super(tokenRange, content);
         customInitialization();
     }
+
 
     @Override
     @Generated("com.github.javaparser.generator.core.node.AcceptGenerator")

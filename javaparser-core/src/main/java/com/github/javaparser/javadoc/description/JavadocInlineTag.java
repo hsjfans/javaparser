@@ -61,6 +61,7 @@ public class JavadocInlineTag implements JavadocDescriptionElement {
 
         // add the self-defined tag
         IGNORE,
+        FUZZY,
         // end
 
         UNKNOWN;
