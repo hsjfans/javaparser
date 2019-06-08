@@ -61,7 +61,7 @@ public class JavadocBlockTag {
         // add the self-defined comment tag
         IGNORE,
         NAME,
-//        FUZZY,
+        FUZZY,
 //        NECESSARY,
         // end
 
@@ -92,9 +92,9 @@ public class JavadocBlockTag {
     private JavadocDescription content;
     private Optional<String> name = Optional.empty();
     private String tagName;
-    private boolean ignore;
-    private boolean fuzzy;
-    private boolean necessary;
+//    private boolean ignore;
+//    private boolean fuzzy;
+//    private boolean necessary;
 
     public JavadocBlockTag(Type type, String content) {
         this.type = type;
@@ -155,16 +155,16 @@ public class JavadocBlockTag {
     }
 
 
-    /**
-     like
-     *      <code>
-     *      * @param comment comment {@necessary}
-     *      </code>
-     * @return
-     */
-    public boolean isInlineNecessary(){
-        return content.isNecessary();
-    }
+//    /**
+//     like
+//     *      <code>
+//     *      * @param comment comment {@necessary}
+//     *      </code>
+//     * @return
+//     */
+//    public boolean isInlineNecessary(){
+//        return content.isNecessary();
+//    }
 
     public String toText() {
         StringBuilder sb = new StringBuilder();

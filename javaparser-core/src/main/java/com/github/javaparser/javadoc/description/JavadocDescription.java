@@ -37,7 +37,7 @@ public class JavadocDescription {
 
     private boolean fuzzy;
 
-    private boolean necessary;
+//    private boolean necessary;
 
     private List<JavadocDescriptionElement> elements;
 
@@ -52,7 +52,7 @@ public class JavadocDescription {
             JavadocInlineTag javadocInlineTag = (JavadocInlineTag) JavadocInlineTag.fromText(text.substring(nextInlineTagPos.a, nextInlineTagPos.b + 1));
             instance.setIgnore(javadocInlineTag.getType().equals(JavadocInlineTag.Type.IGNORE));
             instance.setFuzzy(javadocInlineTag.getType().equals(JavadocInlineTag.Type.FUZZY));
-            instance.setNecessary(javadocInlineTag.getType().equals(JavadocInlineTag.Type.NECESSARY));
+//            instance.setNecessary(javadocInlineTag.getType().equals(JavadocInlineTag.Type.NECESSARY));
             instance.addElement(javadocInlineTag);
             index = nextInlineTagPos.b + 1;
         }
@@ -115,13 +115,13 @@ public class JavadocDescription {
         this.fuzzy = fuzzy;
     }
 
-    public boolean isNecessary() {
-        return necessary;
-    }
+//    public boolean isNecessary() {
+//        return necessary;
+//    }
 
-    public void setNecessary(boolean necessary) {
-        this.necessary = necessary;
-    }
+//    public void setNecessary(boolean necessary) {
+//        this.necessary = necessary;
+//    }
 
     public boolean isEmpty() {
         return toText().isEmpty();
